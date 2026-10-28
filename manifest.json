@@ -1,0 +1,11 @@
+{
+  "manifest_version": 3,
+  "name": "Tab Tamer",
+  "description": "Tidy open tabs, save workspaces, and find a tab in seconds.",
+  "version": "1.0.0",
+  "permissions": ["tabs", "tabGroups", "storage"],
+  "action": {
+    "default_title": "Tab Tamer",
+    "default_popup": "popup.html"
+  }
+}
