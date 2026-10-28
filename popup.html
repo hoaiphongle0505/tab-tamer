@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light">
+    <title>Tab Tamer</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <!--
+      THESIS: Make a busy window feel sortable at a glance; refuse the usual settings-dashboard stack.
+      OWN-WORLD: A browser-side filing desk: paper-white ground, ink-dark type, leaf-green actions, and fine ruled dividers.
+      STORY: See the open-tab count, group repeated sites, save a named snapshot, then jump back to any tab.
+      FIRST VIEWPORT: Brand and live count lead; organize/save actions sit above search and the current-tab list, with workspaces below.
+      FORM: Compact utility drawer, ordered as a working list rather than a dashboard of decorative cards.
+    -->
+    <main class="app-shell">
+      <header class="topbar">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true">T</span>
+          <h1>Tab Tamer</h1>
+        </div>
+        <span class="local-badge"><span aria-hidden="true"></span> Local only</span>
+      </header>
+
+      <div class="window-summary">
+        <span id="tab-count">—</span>
+        <span id="tab-count-label">tabs in this window</span>
+      </div>
+
+      <section class="actions" aria-label="Tab actions">
+        <button class="button button-primary" id="organize-button" type="button">
+          <span aria-hidden="true">✦</span>
+          Organize by site
+        </button>
+        <button class="button button-secondary" id="save-button" type="button">
+          <span aria-hidden="true">＋</span>
+          Save workspace
+        </button>
+      </section>
+      <p class="hint" id="action-hint">Open two or more tabs from the same site to create a group.</p>
+
+      <section class="tab-section" aria-labelledby="tabs-heading">
+        <div class="section-heading">
+          <h2 id="tabs-heading">Find a tab</h2>
+          <span class="section-count" id="search-count"></span>
+        </div>
+        <label class="search-box">
+          <span class="search-icon" aria-hidden="true"></span>
+          <span class="sr-only">Search open tabs</span>
+          <input id="search-input" type="search" placeholder="Search title or website…" autocomplete="off">
+          <kbd id="search-shortcut">Ctrl K</kbd>
+        </label>
+        <div class="tab-list" id="tab-list" aria-live="polite"></div>
+      </section>
+
+      <section class="workspace-section" aria-labelledby="workspaces-heading">
+        <div class="section-heading">
+          <h2 id="workspaces-heading">Workspaces</h2>
+          <span class="section-count" id="workspace-count"></span>
+        </div>
+        <form class="save-form" id="save-form" hidden>
+          <label class="sr-only" for="workspace-name">Workspace name</label>
+          <input id="workspace-name" name="name" maxlength="60" placeholder="Name this workspace" required>
+          <button class="save-confirm" type="submit">Save</button>
+          <button class="save-cancel" id="cancel-save" type="button" aria-label="Cancel save">×</button>
+        </form>
+        <div class="workspace-list" id="workspace-list"></div>
+      </section>
+
+      <footer class="footer">
+        <span>Made for a calmer browser.</span>
+        <span class="privacy-note"><span aria-hidden="true">●</span> Nothing leaves this device</span>
+      </footer>
+      <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    </main>
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>

@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-28T10:34:18.3075373+07:00",
+  "title": "Design System: Tab Tamer",
+  "extensions": {
+    "colorMeta": {
+      "primary": {
+        "role": "primary",
+        "displayName": "Leaf Green",
+        "canonical": "#176d50",
+        "tonalRamp": ["#082a1e", "#0c3c2b", "#10503a", "#176d50", "#378568", "#65a68a", "#a0c9b4", "#e7f2eb"]
+      }
+    },
+    "typographyMeta": {
+      "title": {
+        "displayName": "System UI",
+        "purpose": "Product and section headings."
+      },
+      "body": {
+        "displayName": "System UI",
+        "purpose": "Actions, tab titles, and supporting interface text."
+      }
+    },
+    "shadows": [
+      {
+        "name": "toast",
+        "value": "0 8px 24px rgb(25 47 35 / 20%)",
+        "purpose": "Separate transient operation feedback from the popup content."
+      }
+    ],
+    "motion": [
+      {
+        "name": "control-state",
+        "value": "160ms ease",
+        "purpose": "Subtle hover and feedback transitions; reduced-motion preference shortens them."
+      }
+    ],
+    "breakpoints": []
+  },
+  "components": [
+    {
+      "name": "Primary Action",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The leading action in the popup.",
+      "html": "<button class=\"ds-primary\">Organize by site</button>",
+      "css": ".ds-primary { height: 38px; padding: 0 9px; border: 0; border-radius: 9px; color: #fff; background: #176d50; font: 700 11px system-ui, sans-serif; cursor: pointer; transition: background 160ms ease, transform 160ms ease; } .ds-primary:hover:not(:disabled) { background: #12563f; transform: translateY(-1px); } .ds-primary:focus-visible { outline: 3px solid #a7d6b7; outline-offset: 2px; }"
+    },
+    {
+      "name": "Secondary Action",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "A secondary action alongside the primary organize control.",
+      "html": "<button class=\"ds-secondary\">Save workspace</button>",
+      "css": ".ds-secondary { height: 38px; padding: 0 9px; border: 1px solid #e5eae5; border-radius: 9px; color: #1d2925; background: #fff; font: 700 11px system-ui, sans-serif; cursor: pointer; transition: background 160ms ease, transform 160ms ease; } .ds-secondary:hover:not(:disabled) { border-color: #cddbd0; background: #fbfdfb; transform: translateY(-1px); } .ds-secondary:focus-visible { outline: 3px solid #a7d6b7; outline-offset: 2px; }"
+    },
+    {
+      "name": "Tab Search",
+      "kind": "input",
+      "refersTo": "input-search",
+      "description": "Searches open tabs by title or website.",
+      "html": "<label class=\"ds-search\"><span class=\"ds-search-icon\" aria-hidden=\"true\"></span><input aria-label=\"Search open tabs\" placeholder=\"Search title or website…\"><kbd>Ctrl K</kbd></label>",
+      "css": ".ds-search { display: flex; align-items: center; gap: 9px; height: 35px; padding: 0 9px; border: 1px solid #e4e9e4; border-radius: 8px; background: #fff; } .ds-search:focus-within { border-color: #90bca0; box-shadow: 0 0 0 3px #e9f4ec; } .ds-search input { min-width: 0; flex: 1; border: 0; outline: 0; color: #1d2925; background: transparent; font: 400 11px system-ui, sans-serif; } .ds-search input::placeholder { color: #68746b; } .ds-search kbd { border: 1px solid #e5e9e4; border-radius: 4px; padding: 3px 5px; color: #68746b; background: #fff; font: 9px system-ui, sans-serif; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Browser Filing Desk",
+    "overview": "The popup is a small working surface for sorting and returning to browser pages. Its visual language borrows from a tidy filing desk: a light paper-like canvas, dark readable type, ruled section boundaries, and a leaf-green action color. The compact utility layout keeps the tabs themselves—not decoration—at the center.\n\nControls stay familiar and direct. Site initials stand in for remote favicon loading, saved workspaces read as simple rows, and empty states explain the next useful action.",
+    "keyCharacteristics": [
+      "Compact, list-led organization",
+      "Green primary actions on a light neutral ground",
+      "Fine dividers instead of stacked dashboard cards",
+      "Browser-native system typography"
+    ],
+    "rules": [],
+    "dos": [
+      "Do keep open tabs and saved workspaces as the main content.",
+      "Do use local browser storage and avoid external assets or service calls.",
+      "Do preserve clear focus states and readable supporting text."
+    ],
+    "donts": [
+      "Don't add remote favicons, fonts, or decorative imagery to the popup.",
+      "Don't turn the tab list into a stack of generic cards.",
+      "Don't hide partial browser-operation failures."
+    ]
+  }
+}
